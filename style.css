@@ -1,0 +1,196 @@
+html, body {
+    margin:auto;
+    height:100%;
+    background-color:rgb(15, 13, 13);
+    position: relative;
+    z-index: 1;
+    color:white;
+    font-family: 'Righteous', cursive;
+}
+
+header {
+    text-align:center;
+}
+
+main {
+    text-align:center;
+}
+
+#taskSection {
+    display:flex;
+    justify-content: row;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.task {
+    padding-top:38px;
+    padding-bottom:20px;
+    padding-left:20px;
+    padding-right:20px;
+    margin:5px;
+    width:200px;
+    height:210px;
+    display:flex;
+    flex-direction: column;
+    background-image: url(assets/images/neonNote.jpg);
+    background-size: 210px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+
+.task-fade-in {
+    animation-name: fadeIn;
+    animation-duration: 1s;
+}
+
+.header-container {
+    display:flex;
+    flex-direction: row;
+}
+
+.header-container > h4 {
+    display:flex;
+    flex:1;
+    margin-right:3px;
+    word-break:break-all;
+}
+
+.removeBtn {
+    border:none;
+    background:none;
+    padding:0;
+    height:fit-content;
+    width: fit-content;
+    opacity: 0;
+    transition: 0.1s ease-in;
+    color:white;
+}
+
+.task:hover .removeBtn {
+    opacity:1;
+}
+
+.removeBtn i {
+    font-size:x-large;
+}
+
+.description-container {
+    overflow-x:hidden;
+    overflow-y:auto;
+    word-break:break-all;
+    display:flex;
+    flex:1;
+}
+
+#alertContainer {
+    font-size:large;
+    display:flex;
+    justify-content:center;
+    margin-top:12px;
+}
+
+.warningImg {
+    height:22px;
+    width:20px;
+}
+
+.focusing:focus {
+    outline:none;
+}
+
+.purpleBall {
+    border:15px solid rgb(189, 132, 255);
+    border-radius:50%;
+    box-shadow:1px 1px 10px 10px rgb(189, 132, 255), 1px 5px 10px 10px rgb(128, 75, 188);
+    display:inline-block;
+    animation: movingUpBall;
+    animation-iteration-count: infinite;
+}
+
+.blueBall {
+    border:15px solid rgb(50, 226, 226);
+    border-radius:50%;
+    box-shadow:1px 1px 10px 10px rgb(36, 235, 235), 1px 5px 10px 10px rgb(37, 139, 139);
+    display:inline-block;
+    animation: movingUpBall;
+    animation-iteration-count: infinite;
+}
+
+.purpleBall, .blueBall {
+    animation-duration:var(--ad);
+    animation-delay:var(--del);
+    transform:translateY(1000px);
+}
+
+
+@keyframes movingUpBall {
+    0% {
+        transform: translateY(1000px);
+    }
+    100% {
+        transform: translateY(-200px);
+    }
+}
+
+#backgroundContainer {
+    display:flex;
+    justify-content: space-evenly;
+    position:fixed;
+    z-index: -1;
+    margin:10px;
+    width:100%;
+
+}
+
+.taskForm {
+
+    display:flex;
+    flex-direction: column;
+    display:inline-block;
+    padding:10px;
+    border-radius:10px;
+    animation:formBorder;
+    animation-duration:4s;
+    animation-iteration-count: infinite;
+    margin-top:20px;
+}
+
+.taskForm input {
+    background-color:transparent;
+    color:rgb(50, 226, 226);
+}
+
+.taskForm textarea {
+    background-color:transparent;
+    color:rgb(50, 226, 226);
+}
+
+
+@keyframes formBorder {
+    0%, 100%{
+    
+        box-shadow: 0px 0px 6px 6px rgb(36, 235, 235), 0px 0px 6px 6px rgb(37, 139, 139);
+    }
+
+    50% {
+        box-shadow:0px 0px 6px 6px rgb(189, 132, 255), 0px 0px 6px 6px rgb(128, 75, 188);
+    }
+}
+
+.saveBtn, .clearBtn {
+    transition: transform 0.3s;
+}
+
+.saveBtn:hover, .clearBtn:hover {
+    transform:translateY(-5px);
+}
